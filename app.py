@@ -24,6 +24,10 @@ def buscar():
 
     return jsonify(resultados.to_dict(orient="records"))  # Enviar todos los datos
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # Render asigna un puerto dinámico
+    app.run(host='0.0.0.0', port=port, debug=True)
+
 
